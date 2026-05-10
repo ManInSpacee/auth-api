@@ -1,5 +1,8 @@
 export class AppError extends Error {
-  constructor(public message: string, public status: number) {
+  constructor(
+    public message: string,
+    public status: number,
+  ) {
     super(message);
   }
 
@@ -13,5 +16,9 @@ export class AppError extends Error {
 
   static unauthorized(msg = "Unauthorized") {
     return new AppError(msg, 401);
+  }
+
+  static conflict(msg = "Alreaday exists") {
+    return new AppError(msg, 409);
   }
 }
